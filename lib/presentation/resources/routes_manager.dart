@@ -26,6 +26,7 @@ class RouteGenerator {
 
       case Routes.mainpage:
         initHomeModule();
+
         return MaterialPageRoute(builder: (_) => MainView());
 
       default:

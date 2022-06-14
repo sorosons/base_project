@@ -5,7 +5,6 @@ import 'package:complete_advanced_flutter/data/network/dio_factory.dart';
 import 'package:complete_advanced_flutter/data/network/network_info.dart';
 import 'package:complete_advanced_flutter/data/repository/repository_impl.dart';
 import 'package:complete_advanced_flutter/domain/repository/repository.dart';
-import 'package:complete_advanced_flutter/domain/usecase/home_usecase.dart';
 import 'package:complete_advanced_flutter/presentation/main/home/home_viewmodel.dart';
 
 import 'package:get_it/get_it.dart';
@@ -50,9 +49,8 @@ Future<void> initAppModule() async {
 }
 
 initHomeModule() {
-  if (!GetIt.I.isRegistered<HomeUseCase>()) {
-    instance.registerFactory<HomeUseCase>(() => HomeUseCase(instance()));
-    instance.registerFactory<HomeViewModel>(() => HomeViewModel(instance()));
+  if (!GetIt.I.isRegistered<HomeViewModel>()) {
+    instance.registerFactory<HomeViewModel>(() => HomeViewModel());
   }
 }
 
