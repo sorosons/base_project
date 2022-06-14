@@ -16,8 +16,7 @@ class _AppServiceClient implements AppServiceClient {
   String? baseUrl;
 
   @override
-  Future<AuthenticationResponse> login(
-      email, password, imei, deviceType) async {
+  Future<dynamic> login(email, password, imei, deviceType) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = {
@@ -26,81 +25,40 @@ class _AppServiceClient implements AppServiceClient {
       'imei': imei,
       'deviceType': deviceType
     };
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AuthenticationResponse>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/customers/login',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = AuthenticationResponse.fromJson(_result.data!);
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/customers/login',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
     return value;
   }
 
   @override
-  Future<ForgotPasswordResponse> forgotPassword(email) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _data = {'email': email};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ForgotPasswordResponse>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/customers/forgotPassword',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = ForgotPasswordResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<AuthenticationResponse> register(countryMobileCode, userName, email,
-      password, mobilNumber, profilePicture) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _data = {
-      'country_mobile_code': countryMobileCode,
-      'user_name': userName,
-      'email': email,
-      'password': password,
-      'mobile_number': mobilNumber,
-      'profile_picture': profilePicture
-    };
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<AuthenticationResponse>(
-            Options(method: 'POST', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/customers/register',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = AuthenticationResponse.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<HomeResponse> getHome() async {
+  Future<dynamic> getHome() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<HomeResponse>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/home',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = HomeResponse.fromJson(_result.data!);
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/home',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
     return value;
   }
 
   @override
-  Future<StoreDetailsResponse> getStoreDetails() async {
+  Future<dynamic> getStoreDetails() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<StoreDetailsResponse>(
-            Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
-                .compose(_dio.options, '/storeDetails/1',
-                    queryParameters: queryParameters, data: _data)
-                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = StoreDetailsResponse.fromJson(_result.data!);
+    final _result = await _dio.fetch(_setStreamType<dynamic>(
+        Options(method: 'GET', headers: <String, dynamic>{}, extra: _extra)
+            .compose(_dio.options, '/storeDetails/1',
+                queryParameters: queryParameters, data: _data)
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = _result.data;
     return value;
   }
 
