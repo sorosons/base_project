@@ -6,21 +6,6 @@ class SliderObject {
   SliderObject(this.title, this.subTitle, this.image);
 }
 
-class Customer {
-  String id;
-  String name;
-  int numOfNotifications;
-
-  Customer(this.id, this.name, this.numOfNotifications);
-}
-
-class Authentication {
-  Customer? customer;
-  // Contacts? contacts;
-
-  Authentication(this.customer);
-}
-
 class DeviceInfo {
   String name;
   String identifier;
@@ -29,41 +14,23 @@ class DeviceInfo {
   DeviceInfo(this.name, this.identifier, this.version);
 }
 
-class Service {
-  int id;
-  String title;
-  String image;
+class Meme {
+  String id;
+  String name;
+  String url;
+  int width;
+  int height;
+  int boxCount;
 
-  Service(this.id, this.title, this.image);
+  Meme(this.id, this.name, this.url, this.width, this.height, this.boxCount);
 }
 
-class Store {
-  int id;
-  String title;
-  String image;
-
-  Store(this.id, this.title, this.image);
+class MemeData {
+  List<Meme> memeData;
+  MemeData(this.memeData);
 }
 
-class BannerAd {
-  int id;
-  String title;
-  String image;
-  String link;
-
-  BannerAd(this.id, this.title, this.image, this.link);
-}
-
-class HomeData {
-  List<Service> services;
-  List<Store> stores;
-  List<BannerAd> banners;
-
-  HomeData(this.services, this.stores, this.banners);
-}
-
-class HomeObject {
-  HomeData data;
-
-  HomeObject(this.data);
+class MemeObject {
+  MemeData memeData;
+  MemeObject(this.memeData);
 }

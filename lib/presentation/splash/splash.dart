@@ -37,7 +37,7 @@ class _SplashViewState extends State<SplashView> {
                         if (isOnBoardingScreenViewed)
                           {
                             Navigator.pushReplacementNamed(
-                                context, Routes.mainpage)
+                                context, Routes.memes)
                           }
                         else
                           {

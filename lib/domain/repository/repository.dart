@@ -4,4 +4,6 @@ import 'package:dartz/dartz.dart';
 
 import '../model/model.dart';
 
-abstract class Repository {}
+abstract class Repository {
+  Future<Either<Failure, MemeObject>> getMeme();
+}

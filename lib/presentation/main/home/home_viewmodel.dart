@@ -45,10 +45,4 @@ abstract class HomeViewModelOutputs {
   Stream<HomeViewObject> get outputHomeData;
 }
 
-class HomeViewObject {
-  List<Store> stores;
-  List<Service> services;
-  List<BannerAd> banners;
-
-  HomeViewObject(this.stores, this.services, this.banners);
-}
+class HomeViewObject {}

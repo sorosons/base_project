@@ -1,6 +1,7 @@
 import 'package:complete_advanced_flutter/app/di.dart';
 import 'package:complete_advanced_flutter/presentation/main/home/home_page.dart';
 import 'package:complete_advanced_flutter/presentation/main/main_view.dart';
+import 'package:complete_advanced_flutter/presentation/meme/meme_view.dart';
 import 'package:complete_advanced_flutter/presentation/onboarding/onboarding.dart';
 
 import 'package:complete_advanced_flutter/presentation/resources/strings_manager.dart';
@@ -13,6 +14,7 @@ class Routes {
   static const String splashRoute = "/";
   static const String onBoardingRoute = "/onBoarding";
   static const String mainpage = "/mainview";
+  static const String memes = "/meme";
 }
 
 class RouteGenerator {
@@ -26,8 +28,11 @@ class RouteGenerator {
 
       case Routes.mainpage:
         initHomeModule();
-
         return MaterialPageRoute(builder: (_) => MainView());
+
+      case Routes.memes:
+        initMemes();
+        return MaterialPageRoute(builder: (_) => MemeView());
 
       default:
         return unDefinedRoute();

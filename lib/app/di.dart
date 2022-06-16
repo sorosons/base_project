@@ -5,9 +5,12 @@ import 'package:complete_advanced_flutter/data/network/dio_factory.dart';
 import 'package:complete_advanced_flutter/data/network/network_info.dart';
 import 'package:complete_advanced_flutter/data/repository/repository_impl.dart';
 import 'package:complete_advanced_flutter/domain/repository/repository.dart';
+import 'package:complete_advanced_flutter/domain/usecase/meme_usecase.dart';
 import 'package:complete_advanced_flutter/presentation/main/home/home_viewmodel.dart';
+import 'package:complete_advanced_flutter/presentation/meme/meme_view_model.dart';
 
 import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -51,6 +54,13 @@ Future<void> initAppModule() async {
 initHomeModule() {
   if (!GetIt.I.isRegistered<HomeViewModel>()) {
     instance.registerFactory<HomeViewModel>(() => HomeViewModel());
+  }
+}
+
+initMemes() {
+  if (!GetIt.I.isRegistered<MemeUseCase>()) {
+    instance.registerFactory<MemeUseCase>(() => MemeUseCase(instance()));
+    instance.registerFactory<MemeViewModel>(() => MemeViewModel(instance()));
   }
 }
 

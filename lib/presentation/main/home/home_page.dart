@@ -55,18 +55,18 @@ class _HomePageState extends State<HomePage> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _getBanner(snapshot.data?.banners),
-              _getSection(AppStrings.services.tr()),
-              _getServicesWidget(snapshot.data?.services),
-              _getSection(AppStrings.stores.tr()),
-              _getStoresWidget(snapshot.data?.stores),
+              _getBanner(null),
+              _getSection(null),
+              _getServicesWidget(null),
+              _getSection(null),
+              _getStoresWidget(null),
             ],
           );
           ;
         });
   }
 
-  Widget _getSection(String title) {
+  Widget _getSection(String? title) {
     return Padding(
       padding: EdgeInsets.only(
           top: AppPadding.p12,
@@ -74,13 +74,13 @@ class _HomePageState extends State<HomePage> {
           right: AppPadding.p12,
           bottom: AppPadding.p2),
       child: Text(
-        title,
+        "title",
         style: Theme.of(context).textTheme.headline3,
       ),
     );
   }
 
-  Widget _getBanner(List<BannerAd>? banners) {
+  Widget _getBanner(List<dynamic>? banners) {
     if (banners != null) {
       return CarouselSlider(
           items: banners
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget _getServicesWidget(List<Service>? services) {
+  Widget _getServicesWidget(List<dynamic>? services) {
     if (services != null) {
       return Padding(
         padding: EdgeInsets.only(left: AppPadding.p12, right: AppPadding.p12),
@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Widget _getStoresWidget(List<Store>? stores) {
+  Widget _getStoresWidget(List<dynamic>? stores) {
     if (stores != null) {
       return Padding(
         padding: EdgeInsets.only(

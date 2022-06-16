@@ -125,7 +125,7 @@ class StateRenderer extends StatelessWidget {
         child: Text(
           message,
           style:
-              getMediumStyle(color: ColorManager.black, fontSize: FontSize.s16),
+              getMediumStyle(color: ColorManager.white, fontSize: FontSize.s16),
         ),
       ),
     );
