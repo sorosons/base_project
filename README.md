@@ -20,7 +20,7 @@
 
 <ol>
   <li><strong>Clone the repository:</strong></li>
-  <pre><code>git clone &lt;repository-url&gt;</code></pre>
+  <pre><code>git clone https://github.com/sorosons/base_project;</code></pre>
   <pre><code>cd clean-architecture-stream-controller</code></pre>
 
   <li><strong>Install Dependencies:</strong></li>
